@@ -26,24 +26,24 @@ st.set_page_config(
     layout="wide"
 )
 
-# Sidebar - Logo & Credit
+# Sidebar - Credit Only
 with st.sidebar:
-    if os.path.exists(LOGO_PATH):
-        st.image(LOGO_PATH, width=300)
-    else:
-        st.warning("Logo not found")
-        
-    st.markdown("---")
     st.markdown("#### Developed on TRAE AI")
     if os.path.exists(TRAE_LOGO_PATH):
         st.image(TRAE_LOGO_PATH, width=120)
+
+# Main Landing Page
+if os.path.exists(LOGO_PATH):
+    col_l1, col_l2, col_l3 = st.columns([1, 2, 1])
+    with col_l2:
+        st.image(LOGO_PATH, use_container_width=True)
 
 # Custom Styling for Title
 st.markdown("""
     <style>
     .title-container {
         text-align: center;
-        padding: 2rem 0;
+        padding: 1rem 0;
         background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
         border-radius: 10px;
         margin-bottom: 2rem;
@@ -51,7 +51,7 @@ st.markdown("""
     }
     .main-title {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        color: #1E3A8A; /* Dark Blue */
+        color: #3f4079; /* QuXAT Dark Purple */
         font-size: 3rem;
         font-weight: 800;
         margin: 0;
@@ -65,7 +65,7 @@ st.markdown("""
         margin-top: 0.5rem;
     }
     .highlight {
-        color: #2563EB; /* Bright Blue */
+        color: #ec008c; /* QuXAT Magenta */
     }
     </style>
     <div class="title-container">
