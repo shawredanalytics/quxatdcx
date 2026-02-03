@@ -26,15 +26,9 @@ st.set_page_config(
     layout="wide"
 )
 
-# Sidebar - Credit Only
-with st.sidebar:
-    st.markdown("#### Developed on TRAE AI")
-    if os.path.exists(TRAE_LOGO_PATH):
-        st.image(TRAE_LOGO_PATH, width=120)
-
 # Main Landing Page
 if os.path.exists(LOGO_PATH):
-    col_l1, col_l2, col_l3 = st.columns([1, 2, 1])
+    col_l1, col_l2, col_l3 = st.columns([1.5, 1, 1.5])
     with col_l2:
         st.image(LOGO_PATH, use_container_width=True)
 
