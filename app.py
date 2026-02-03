@@ -26,15 +26,24 @@ st.set_page_config(
     layout="wide"
 )
 
-# Sidebar - About Us
+# Sidebar - Logo & Credit
 with st.sidebar:
     if os.path.exists(LOGO_PATH):
         st.image(LOGO_PATH, width=300)
     else:
         st.warning("Logo not found")
         
-    st.header("About QUXAT DCX")
-    st.info(
+    st.markdown("---")
+    st.markdown("#### Developed on TRAE AI")
+    if os.path.exists(TRAE_LOGO_PATH):
+        st.image(TRAE_LOGO_PATH, width=120)
+
+st.title("QUXAT DCX - AI PDF Modifier")
+st.markdown("Upload a PDF, detect dates, review and modify them.")
+
+# Key Features
+with st.expander("ℹ️ About QUXAT DCX & Key Features", expanded=False):
+    st.markdown(
         """
         **QUXAT DCX - AI PDF Modifier** is a powerful tool designed to streamline document updates for hospitals and organizations.
         
@@ -60,13 +69,6 @@ with st.sidebar:
         *Built for efficiency and accuracy in document management.*
         """
     )
-
-    st.markdown("---")
-    st.markdown("#### Developed on TRAE AI")
-    st.image("assets/Trae_AI_logo.jpg", width=120)
-
-st.title("QUXAT DCX - AI PDF Modifier")
-st.markdown("Upload a PDF, detect dates, review and modify them.")
 
 # Workflow Flowchart
 with st.expander("📌 How to Use QuXAT DCX (Workflow)", expanded=True):
