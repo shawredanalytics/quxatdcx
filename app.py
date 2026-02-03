@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import sys
+import base64
 
 # Setup paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -156,19 +157,19 @@ if uploaded_file is not None:
 
     col1, col2 = st.columns([1, 5])
     with col1:
-        detect_btn = st.button("Detect Dates")
+        detect_btn = st.button("Detect Modifiable Details")
     
     if detect_btn:
-        with st.spinner("Detecting dates..."):
+        with st.spinner("Detecting Modifiable Details..."):
             handler = PDFHandler()
             try:
                 handler.load_pdf(st.session_state.pdf_bytes)
                 dates = handler.detect_dates()
                 st.session_state.detected_dates = dates
                 st.session_state.editor_key += 1
-                st.success(f"Detected {len(dates)} dates.")
+                st.success(f"Detected {len(dates)} modifiable details.")
             except Exception as e:
-                st.error(f"Error detecting dates: {e}")
+                st.error(f"Error detecting modifiable details: {e}")
             finally:
                 handler.close()
 
@@ -263,7 +264,7 @@ if uploaded_file is not None:
                 "page": st.column_config.NumberColumn(disabled=True),
                 "context": st.column_config.TextColumn(disabled=True, width="large"),
                 "original_text": st.column_config.TextColumn(disabled=True),
-                "replacement": st.column_config.TextColumn("Replacement Date", required=True)
+                "replacement": st.column_config.TextColumn("Replacement Detail", required=True)
             },
             hide_index=True,
             width="stretch",
@@ -327,7 +328,25 @@ if uploaded_file is not None:
                     st.error(f"Error processing PDF: {e}")
 
 st.markdown("---")
-col_footer1, col_footer2, col_footer3 = st.columns([3, 1, 3])
-with col_footer2:
-    st.markdown("<div style='text-align: center; font-weight: bold; font-size: 14px; margin-bottom: 5px;'>Developed on TRAE AI</div>", unsafe_allow_html=True)
-    st.image("assets/Trae_AI_logo.jpg", width=100)
+
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+if os.path.exists(TRAE_LOGO_PATH):
+    try:
+        img_base64 = get_base64_of_bin_file(TRAE_LOGO_PATH)
+        st.markdown(
+            f"""
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 1rem;">
+                <div style="font-weight: 700; font-size: 24px; margin-bottom: 15px; color: #2c3e50;">Developed on TRAE AI</div>
+                <img src="data:image/jpeg;base64,{img_base64}" style="width: 200px; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    except Exception as e:
+        st.error(f"Error loading logo: {e}")
+else:
+    st.markdown("<div style='text-align: center; font-weight: bold; font-size: 20px;'>Developed on TRAE AI</div>", unsafe_allow_html=True)
