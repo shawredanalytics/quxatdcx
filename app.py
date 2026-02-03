@@ -1,16 +1,38 @@
 import streamlit as st
-import pandas as pd
-from src.pdf_handler import PDFHandler
+import os
+import sys
+
+# Setup paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ASSETS_DIR = os.path.join(BASE_DIR, "assets")
+LOGO_PATH = os.path.join(ASSETS_DIR, "logo.png")
+TRAE_LOGO_PATH = os.path.join(ASSETS_DIR, "Trae_AI_logo.jpg")
+
+# Add src to python path if needed
+if BASE_DIR not in sys.path:
+    sys.path.append(BASE_DIR)
+
+try:
+    import pandas as pd
+    from src.pdf_handler import PDFHandler
+except Exception as e:
+    st.error(f"Critical Error importing modules: {e}")
+    st.error("Please ensure requirements.txt is installed correctly.")
+    st.stop()
 
 st.set_page_config(
     page_title="QUXAT DCX - AI PDF Modifier",
-    page_icon="assets/logo.png",
+    page_icon=LOGO_PATH,
     layout="wide"
 )
 
 # Sidebar - About Us
 with st.sidebar:
-    st.image("assets/logo.png", use_container_width=True)
+    if os.path.exists(LOGO_PATH):
+        st.image(LOGO_PATH, width=300)
+    else:
+        st.warning("Logo not found")
+        
     st.header("About QUXAT DCX")
     st.info(
         """
