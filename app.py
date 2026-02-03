@@ -68,7 +68,7 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-st.markdown("##### Upload a PDF, detect dates, review and modify them.")
+st.markdown("##### Upload a PDF, detect dates, modifiable details (Issue, Version, Amends, Doc No etc.) review them and modify them - with batch change functionality.")
 
 # Key Features
 with st.expander("ℹ️ About QUXAT DCX & Key Features", expanded=False):
@@ -84,7 +84,7 @@ with st.expander("ℹ️ About QUXAT DCX & Key Features", expanded=False):
         
         **2. 🏥 Global Text Replacement**
         - Update critical document details across **all pages** instantly.
-        - Supports: **Hospital Name, Document No, Issue No, and Copy No**.
+        - Supports: **Hospital Name, Document No, Issue No, Copy No, Version, and Amends**.
         - Handles precise replacement even with varying spacing.
         
         **3. 🖼️ Logo Management**
@@ -220,6 +220,18 @@ if uploaded_file is not None:
             with col_c2:
                 new_copy_no = st.text_input("New Copy No:", placeholder="e.g. Copy No: 2")
 
+            col_v1, col_v2 = st.columns(2)
+            with col_v1:
+                old_version = st.text_input("Current Version:", placeholder="e.g. Ver: 1.0")
+            with col_v2:
+                new_version = st.text_input("New Version:", placeholder="e.g. Ver: 1.1")
+
+            col_a1, col_a2 = st.columns(2)
+            with col_a1:
+                old_amends = st.text_input("Current Amends:", placeholder="e.g. Amends: 0")
+            with col_a2:
+                new_amends = st.text_input("New Amends:", placeholder="e.g. Amends: 1")
+
 
         # Batch Update UI
         with st.expander("Batch Update Options", expanded=True):
@@ -284,6 +296,10 @@ if uploaded_file is not None:
                         text_replacements.append((old_issue_no, new_issue_no))
                     if old_copy_no and new_copy_no:
                         text_replacements.append((old_copy_no, new_copy_no))
+                    if old_version and new_version:
+                        text_replacements.append((old_version, new_version))
+                    if old_amends and new_amends:
+                        text_replacements.append((old_amends, new_amends))
                     
                     # Apply changes
                     new_pdf_bytes, report = handler.apply_changes(updates, logo_stream=logo_bytes, text_replacements=text_replacements)
