@@ -223,7 +223,7 @@ if uploaded_file is not None:
                 "replacement": st.column_config.TextColumn("Replacement Date", required=True)
             },
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
             num_rows="fixed",
             key=f"date_editor_{st.session_state.editor_key}"
         )
