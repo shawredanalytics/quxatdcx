@@ -38,8 +38,43 @@ with st.sidebar:
     if os.path.exists(TRAE_LOGO_PATH):
         st.image(TRAE_LOGO_PATH, width=120)
 
-st.title("QUXAT DCX - AI PDF Modifier")
-st.markdown("Upload a PDF, detect dates, review and modify them.")
+# Custom Styling for Title
+st.markdown("""
+    <style>
+    .title-container {
+        text-align: center;
+        padding: 2rem 0;
+        background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .main-title {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #1E3A8A; /* Dark Blue */
+        font-size: 3rem;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: -1px;
+    }
+    .subtitle {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #64748B; /* Slate Grey */
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-top: 0.5rem;
+    }
+    .highlight {
+        color: #2563EB; /* Bright Blue */
+    }
+    </style>
+    <div class="title-container">
+        <div class="main-title">QUXAT <span class="highlight">DCX</span></div>
+        <div class="subtitle">AI-Powered PDF Modifier</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("##### Upload a PDF, detect dates, review and modify them.")
 
 # Key Features
 with st.expander("ℹ️ About QUXAT DCX & Key Features", expanded=False):
