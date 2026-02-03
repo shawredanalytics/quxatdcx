@@ -1,6 +1,6 @@
-# PDF Date Modification Application
+# QUXAT DCX - AI PDF Modifier
 
-A Streamlit-based application to detect, review, and modify date fields inside PDF documents while preserving layout.
+QUXAT DCX - AI PDF Modifier is a powerful tool designed to streamline document updates for hospitals and organizations.
 
 ## Features
 - **PDF Ingestion**: Upload text-based PDFs.
@@ -10,7 +10,6 @@ A Streamlit-based application to detect, review, and modify date fields inside P
 
 ## Requirements
 - Python 3.8+
-- Tesseract OCR (Optional, for scanned PDFs - currently text-only support is implemented)
 
 ## Installation
 
