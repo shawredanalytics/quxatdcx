@@ -261,4 +261,4 @@ st.markdown("---")
 col_footer1, col_footer2, col_footer3 = st.columns([3, 1, 3])
 with col_footer2:
     st.markdown("<div style='text-align: center; font-weight: bold; font-size: 14px; margin-bottom: 5px;'>Developed on TRAE AI</div>", unsafe_allow_html=True)
-    st.image("assets/Trae_AI_logo.jpg", use_container_width=True)
+    st.image("assets/Trae_AI_logo.jpg", width=100)

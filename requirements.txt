@@ -1,5 +1,5 @@
-streamlit
-pymupdf
-python-dateutil
-pandas
+streamlit==1.49.1
+pymupdf==1.26.7
+python-dateutil==2.9.0.post0
+pandas>=2.0.0
 graphviz
