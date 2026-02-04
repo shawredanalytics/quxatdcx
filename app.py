@@ -53,7 +53,7 @@ st.markdown("""
         letter-spacing: -1px;
     }
     .subtitle {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: Arial, sans-serif;
         color: #64748B; /* Slate Grey */
         font-size: 1.5rem;
         font-weight: 400;
