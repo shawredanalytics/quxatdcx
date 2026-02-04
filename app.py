@@ -45,7 +45,7 @@ st.markdown("""
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     .main-title {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: Arial, sans-serif;
         color: #3f4079; /* QuXAT Dark Purple */
         font-size: 3rem;
         font-weight: 800;
