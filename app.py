@@ -108,8 +108,9 @@ with st.expander("📌 How to Use QuXAT DCX (Workflow)", expanded=True):
             node [shape=box, style="filled,rounded", fontname="Arial", fontsize=10];
             
             Start [label="📂 Upload PDF", fillcolor="#e1f5fe"];
-            Detect [label="📅 Auto-Detect Dates", fillcolor="#fff9c4"];
-            ModifyDates [label="✏️ Review & Batch Update Dates", fillcolor="#fff9c4"];
+            Detect [label="📅 Auto-Detect Modifiable Details", fillcolor="#fff9c4"];
+            ModifyDates [label="✏️ Review & Batch Update Details", fillcolor="#fff9c4"];
+            Debug [label="🐞 Debug Info\n(Copy Exact Text for Replacements)", fillcolor="#e1bee7"];
             
             subgraph cluster_mods {
                 label = "Global Modifications";
@@ -124,6 +125,8 @@ with st.expander("📌 How to Use QuXAT DCX (Workflow)", expanded=True):
 
             Start -> Detect;
             Detect -> ModifyDates;
+            Detect -> Debug [style=dotted];
+            Debug -> GlobalText [style=dashed, label="Use Text"];
             ModifyDates -> Logo [style=dotted];
             ModifyDates -> GlobalText [style=dotted];
             Logo -> Generate;
