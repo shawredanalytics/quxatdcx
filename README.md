@@ -1,6 +1,6 @@
-# QUXAT DCX - AI PDF Modifier
+# QuXAT DCX - AI PDF Modifier
 
-QUXAT DCX - AI PDF Modifier is a powerful tool designed to streamline document updates for hospitals and organizations.
+QuXAT DCX - AI PDF Modifier is a powerful tool designed to streamline document updates for hospitals and organizations.
 
 ## Features
 - **PDF Ingestion**: Upload text-based PDFs.

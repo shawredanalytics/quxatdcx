@@ -22,7 +22,7 @@ except Exception as e:
     st.stop()
 
 st.set_page_config(
-    page_title="QUXAT DCX - AI PDF Modifier",
+    page_title="QuXAT DCX - AI PDF Modifier",
     page_icon=LOGO_PATH,
     layout="wide"
 )
@@ -64,7 +64,7 @@ st.markdown("""
     }
     </style>
     <div class="title-container">
-        <div class="main-title">QUXAT <span class="highlight">DCX</span></div>
+        <div class="main-title">QuXAT <span class="highlight">DCX</span></div>
         <div class="subtitle">AI-Powered PDF Modifier</div>
     </div>
     """, unsafe_allow_html=True)
@@ -72,10 +72,10 @@ st.markdown("""
 st.markdown("##### Upload a PDF, detect dates, modifiable details (Issue, Version, Amends, Doc No etc.) review them and modify them - with batch change functionality.")
 
 # Key Features
-with st.expander("ℹ️ About QUXAT DCX & Key Features", expanded=False):
+with st.expander("ℹ️ About QuXAT DCX & Key Features", expanded=False):
     st.markdown(
         """
-        **QUXAT DCX - AI PDF Modifier** is a powerful tool designed to streamline document updates for hospitals and organizations.
+        **QuXAT DCX - AI PDF Modifier** is a powerful tool designed to streamline document updates for hospitals and organizations.
         
         ### 🔑 Key Features:
         
